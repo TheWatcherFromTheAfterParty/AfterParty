@@ -2,54 +2,59 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Phase 1 - Secure Access</title>
+    <title>PHASE 1: INITIATION</title>
     <link rel="stylesheet" href="style.css">
     <script>
         function checkPassword() {
             var password = document.getElementById("password").value;
             if (password === "secondkey") { 
-                document.body.innerHTML = "<h1 class='glitch'>PASSWORD ENTERED...</h1><p>Decrypting...</p>";
+                document.body.innerHTML = "<h1 class='glitch'>ACCESS GRANTED</h1><p>Decrypting...</p>";
                 setTimeout(function() {
-                    document.body.innerHTML = "<h1 class='glitch'>ACCESS GRANTED</h1>";
-                    setTimeout(function() {
-                        localStorage.setItem("progress", "phase2");
-                        window.location.href = "phase2.html";
-                    }, 3000); // Simulate hacking delay
-                }, 3000); // Processing delay
+                    localStorage.setItem("progress", "anagram");
+                    window.location.href = "anagram.html"; 
+                }, 3000); // Simulate hacking delay
             } else {
-                document.body.innerHTML = "<h1 class='glitch'>PASSWORD ENTERED...</h1><p>Decrypting...</p>";
-                setTimeout(function() {
-                    document.body.innerHTML = "<h1 class='glitch'>ACCESS DENIED</h1><p>RELOADING...</p>";
-                    setTimeout(function() {
-                        location.reload();
-                    }, 1500); // Reload delay after joke
-                }, 3000); // RELOADING delay
+                alert("UNAUTHORIZED ATTEMPT DETECTED.");
             }
         }
 
         function checkProgress() {
             var progress = localStorage.getItem("progress");
-            if (progress === "phase2") {
-                window.location.href = "phase2.html";
+            if (progress === "anagram") {
+                window.location.href = "anagram.html";
             }
+        }
+
+        function startTyping() {
+            setTimeout(function() {
+                document.getElementById("hiddenMessage1").style.display = "block";
+            }, 4000); // Match the animation delay
+
+            setTimeout(function() {
+                document.getElementById("hiddenMessage2").style.display = "block";
+            }, 8000); // Match the animation delay
+
+            setTimeout(function() {
+                document.getElementById("hiddenMessage3").style.display = "block";
+            }, 12000); // Match the animation delay
+
+            setTimeout(function() {
+                document.getElementById("hiddenMessage4").style.display = "block";
+            }, 16000); // Match the animation delay
         }
     </script>
 </head>
 <body onload="checkProgress(); startTyping();">
     <h1 class="glitch">PHASE 1: INITIATION</h1>
     <div class="typewriter">
-        <p>You have stepped beyond the first door. But the true path remains hidden.</p>
-        <p id="hiddenMessage" style="animation-delay: 0s; display: none;">To proceed, you must recover what was lost. The first key lies where one speaks friend to enter.</p>
-        <script>
-            function startTyping() {
-            setTimeout(function() {
-                document.getElementById("hiddenMessage").style.display = "block";
-            }, 4000); // Match the animation delay
-            }
-        </script>
+        <p><strong>Welcome, Seeker.</strong></p>
+        <p id="hiddenMessage1" style="animation-delay: 0s; display: none;">You have taken your first step. The path forward is hidden in the familiar.</p>
+        <p id="hiddenMessage2" style="animation-delay: 0s; display: none;">The road ahead is known to you, but obscured. Remove what does not belong and read what remains.</p>
+        <p id="hiddenMessage3" style="animation-delay: 0s; display: none;">Capitalize on each of the answers below.</p>
     </div>
     <p></p>
+
     <input type="text" id="password" placeholder="ENTER NEXT KEY">
     <button onclick="checkPassword()">DECRYPT ACCESS</button>
 </body>
-</html> 
+</html>
