@@ -19,9 +19,9 @@
                     }, 3000); // Simulate hacking delay
                 }, 3000); // Processing delay
             } else {
-                document.body.innerHTML = "<h1 class='glitch'>ACCESS DENIED</h1><p>Intruder alert! Self-destruct sequence initiated...</p>";
+                document.body.innerHTML = "<h1 class='glitch'>PASSWORD ENTERED...</h1><p>Decrypting...</p>";
                 setTimeout(function() {
-                    document.body.innerHTML = "<h1 class='glitch'>BOOM!</h1><p>Just kidding, try again.</p>";
+                    document.body.innerHTML = "<h1 class='glitch'>ACCESS DENIED</h1><p>Restarting...</p>";
                     setTimeout(function() {
                         location.reload();
                     }, 3000); // Reload delay after joke

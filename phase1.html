@@ -7,14 +7,29 @@
     <script>
         function checkPassword() {
             var password = document.getElementById("password").value;
+            password = password.toLowerCase().replace(/\s/g, "");
             if (password === "secondkey") { 
-                document.body.innerHTML = "<h1 class='glitch'>ACCESS GRANTED</h1><p>Decrypting...</p>";
+                document.body.innerHTML = "<h1 class='glitch'>PASSWORD ENTERED...</h1><p>Decrypting...</p>";
                 setTimeout(function() {
                     localStorage.setItem("progress", "anagram");
                     window.location.href = "anagram.html"; 
                 }, 3000); // Simulate hacking delay
+            } else if (password === "seabird") {
+                document.body.innerHTML = "<h1 class='glitch'>PASSWORD ENTERED...</h1><p>Decrypting...</p>";
+                setTimeout(function() {
+                    document.body.innerHTML = "<h1 class='glitch'>seek, and ye shall find</h1>";
+                    setTimeout(function() {
+                        location.reload();
+                    }, 3000); // Reload delay after joke
+                }, 3000); // Fake self-destruct delay
             } else {
-                alert("UNAUTHORIZED ATTEMPT DETECTED.");
+                document.body.innerHTML = "<h1 class='glitch'>PASSWORD ENTERED...</h1><p>Decrypting...</p>";
+                setTimeout(function() {
+                    document.body.innerHTML = "<h1 class='glitch'>ACCESS DENIED</h1><p>Restarting...</p>";
+                    setTimeout(function() {
+                        location.reload();
+                    }, 3000); // Reload delay after joke
+                }, 3000); // Fake self-destruct delay
             }
         }
 
@@ -41,6 +56,18 @@
             setTimeout(function() {
                 document.getElementById("hiddenMessage4").style.display = "block";
             }, 16000); // Match the animation delay
+
+            setTimeout(function() {
+                document.getElementById("hiddenMessage5").style.display = "block";
+            }, 20000); // Match the animation delay
+
+            setTimeout(function() {
+                document.getElementById("hiddenMessage6").style.display = "block";
+            }, 24000); // Match the animation delay
+
+            setTimeout(function() {
+                document.getElementById("hiddenMessage7").style.display = "block";
+            }, 28000); // Match the animation delay
         }
     </script>
 </head>
@@ -48,13 +75,22 @@
     <h1 class="glitch">PHASE 1: INITIATION</h1>
     <div class="typewriter">
         <p><strong>Welcome, Seeker.</strong></p>
-        <p id="hiddenMessage1" style="animation-delay: 0s; display: none;">You have taken your first step. The path forward is hidden in the familiar.</p>
-        <p id="hiddenMessage2" style="animation-delay: 0s; display: none;">The road ahead is known to you, but obscured. Remove what does not belong and read what remains.</p>
-        <p id="hiddenMessage3" style="animation-delay: 0s; display: none;">Capitalize on each of the answers below.</p>
+        <p id="hiddenMessage1" style="animation-delay: 0s; display: none;">Knowledge alone is not enough. Awareness is tested next.</p>
+        <p id="hiddenMessage2" style="animation-delay: 0s; display: none;">Prepare yourself for the challenge ahead.</p>
+    </div>
+    <p></p>
+    <div class="typewriter">
+        <p id="hiddenMessage3" style="animation-delay: 0s; display: none;"><strong>Your task:</strong></p>
+        <p id="hiddenMessage4" style="animation-delay: 0s; display: none;">Never touching land, it follows the tide,</p>
+        <p id="hiddenMessage5" style="animation-delay: 0s; display: none;">What gull calls yet speaks no words?</p>
+        <p id="hiddenMessage6" style="animation-delay: 0s; display: none;">A traveler’s omen, a sailor’s guide,        </p>
+        <p id="hiddenMessage7" style="animation-delay: 0s; display: none;">The Watcher marked its passage on the thirteenth night.</p>
     </div>
     <p></p>
 
-    <input type="text" id="password" placeholder="ENTER NEXT KEY">
-    <button onclick="checkPassword()">DECRYPT ACCESS</button>
+
+    <input type="text" id="password" placeholder="ENTER PASSCODE">
+    <button onclick="checkPassword()">CHECK ANSWER</button>
+    
 </body>
 </html>
