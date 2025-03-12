@@ -110,3 +110,15 @@ button:hover {
 .typewriter span {
     animation: typing 3.5s steps(30, end), blink-caret .5s step-end infinite, typing-done 3.5s steps(1, end) forwards;
 }
+
+.hidden-text {
+    color: black;
+    transition: color 0.3s;
+    text-shadow: 0px 0px 0px;
+    font-size: 1.5em; /* Increase font size for better visibility on mobile */
+}
+
+.hidden-text:hover,
+.hidden-text:active {
+    color: #00ff99;
+}
