@@ -1,0 +1,112 @@
+/* Global Styling */
+body {
+    background-color: black;
+    color: #00ff99;  /* Neon green text */
+    font-family: 'Courier New', monospace;
+    text-align: center;
+    padding: 50px;
+    text-shadow: 0px 0px 5px #00ff99;
+    animation: scanlines 0.3s infinite;
+}
+
+/* Glitch Effect */
+@keyframes glitch {
+    0% { text-shadow: 2px 2px 0px #ff0000, -2px -2px 0px #00ff99; }
+    25% { text-shadow: -2px 2px 0px #ff0000, 2px -2px 0px #00ff99; }
+    50% { text-shadow: 2px -2px 0px #ff0000, -2px 2px 0px #00ff99; }
+    75% { text-shadow: -2px -2px 0px #ff0000, 2px 2px 0px #00ff99; }
+    100% { text-shadow: 2px 2px 0px #ff0000, -2px -2px 0px #00ff99; }
+}
+
+.glitch {
+    animation: glitch 0.2s infinite;
+}
+
+/* Scanline Effect */
+@keyframes scanlines {
+    0% { background-position: 0 0; }
+    100% { background-position: 0 10px; }
+}
+
+body::before {
+    content: "";
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 50%, rgba(0, 255, 99, 0.05) 50%);
+    background-size: 100% 10px;
+    pointer-events: none;
+}
+
+/* Terminal Input Field */
+input {
+    background: black;
+    color: #00ff99;
+    font-family: 'Courier New', monospace;
+    border: 1px solid #00ff99;
+    padding: 5px;
+    width: 250px;
+    text-align: center;
+    outline: none;
+    box-shadow: 0 0 5px #00ff99;
+}
+
+/* Glowing Button */
+button {
+    background-color: transparent;
+    color: #00ff99;
+    border: 1px solid #00ff99;
+    padding: 10px;
+    cursor: pointer;
+    font-family: 'Courier New', monospace;
+    box-shadow: 0 0 10px #00ff99;
+}
+
+button:hover {
+    background-color: #00ff99;
+    color: black;
+    text-shadow: none;
+}
+
+/* Typewriter Effect */
+.typewriter p {
+    color: #00ff99;
+    font-family: 'Courier New', monospace;
+    overflow: hidden;
+    border-right: .15em solid #00ff99;
+    white-space: nowrap;
+    margin: 0 auto; /* Gives that scrolling effect as the typing happens */
+    margin-right: auto;
+    letter-spacing: .15em;
+    width: 100%;
+    animation: typing 4s steps(80, end), blink-caret .5s step-end infinite;
+}
+
+/* The typing effect */
+@keyframes typing {
+    from { width: 0; }
+    to { width: 100%; }
+}
+
+/* The blinking cursor effect */
+@keyframes blink-caret {
+    from, to { border-color: transparent; }
+    50% { border-color: #00ff99;}
+}
+
+/* Hide blink-caret after typing is done */
+@keyframes typing-done {
+    from { border-color: #00ff99; }
+    to { border-color: transparent; }
+}
+
+.typewriter p {
+    animation: typing 4s steps(80, end), blink-caret .5s step-end infinite, typing-done 4s steps(1, end) forwards;
+}
+
+.typewriter span {
+    animation: typing 3.5s steps(30, end), blink-caret .5s step-end infinite, typing-done 3.5s steps(1, end) forwards;
+}

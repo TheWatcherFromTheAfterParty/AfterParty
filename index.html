@@ -2,37 +2,37 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Watcher</title>
-    <style>
-        body {
-            background-color: black;
-            color: #00ff99;
-            font-family: 'Courier New', monospace;
-            text-align: center;
-            padding: 50px;
-        }
-        h1 {
-            text-transform: uppercase;
-            letter-spacing: 3px;
-        }
-    </style>
-</head>
-<body>
-    <h1>AFTER PARTY</h1>
-    <p>The doors are closed. Speak the password to enter.</p>
-    
-    <input type="text" id="password" placeholder="Enter password">
-    <button onclick="checkPassword()">Enter</button>
-
+    <title>AFTER PARTY - Secure Terminal</title>
+    <link rel="stylesheet" href="style.css">
     <script>
         function checkPassword() {
             var password = document.getElementById("password").value;
-            if (password === "thefirstkey") {
-                window.location.href = "phase1.html"; 
+            if (password === "firstkey") { 
+                document.body.innerHTML = "<h1 class='glitch'>PASSWORD ENTERED...</h1><p>Decrypting...</p>";
+                setTimeout(function() {
+                    document.body.innerHTML = "<h1 class='glitch'>ACCESS GRANTED</h1>";
+                    setTimeout(function() {
+                        localStorage.setItem("progress", "phase1");
+                        window.location.href = "phase1.html";
+                    }, 3000); // Simulate hacking delay
+                }, 3000); // Processing delay
             } else {
-                alert("Incorrect password. Try again.");
+                document.body.innerHTML = "<h1 class='glitch'>ACCESS DENIED</h1><p>Intruder alert! Self-destruct sequence initiated...</p>";
+                setTimeout(function() {
+                    document.body.innerHTML = "<h1 class='glitch'>BOOM!</h1><p>Just kidding, try again.</p>";
+                    setTimeout(function() {
+                        location.reload();
+                    }, 3000); // Reload delay after joke
+                }, 3000); // Fake self-destruct delay
             }
         }
     </script>
-</body
+</head>
+<body onload="checkProgress()">
+    <h1 class="glitch">AFTER PARTY</h1>
+    <p class="typewriter">System locked. Authentication required.</p>
+    
+    <input type="text" id="password" placeholder="ENTER PASSCODE">
+    <button onclick="checkPassword()">ACCESS SYSTEM</button>
+</body>
+</html>

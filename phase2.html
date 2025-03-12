@@ -2,20 +2,17 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Phase 1 - Secure Access</title>
+    <title>Phase 2 - The Trial of Awareness</title>
     <link rel="stylesheet" href="style.css">
     <script>
         function checkPassword() {
             var password = document.getElementById("password").value;
-            if (password === "secondkey") { 
-                document.body.innerHTML = "<h1 class='glitch'>PASSWORD ENTERED...</h1><p>Decrypting...</p>";
+            if (password === "thirdkey") { 
+                document.body.innerHTML = "<h1 class='glitch'>ACCESS GRANTED</h1><p>Decrypting...</p>";
                 setTimeout(function() {
-                    document.body.innerHTML = "<h1 class='glitch'>ACCESS GRANTED</h1>";
-                    setTimeout(function() {
-                        localStorage.setItem("progress", "phase2");
-                        window.location.href = "phase2.html";
-                    }, 3000); // Simulate hacking delay
-                }, 3000); // Processing delay
+                    localStorage.setItem("progress", "phase3");
+                    window.location.href = "phase3.html"; 
+                }, 3000); // Simulate hacking delay
             } else {
                 document.body.innerHTML = "<h1 class='glitch'>PASSWORD ENTERED...</h1><p>Decrypting...</p>";
                 setTimeout(function() {
@@ -29,14 +26,15 @@
 
         function checkProgress() {
             var progress = localStorage.getItem("progress");
-            if (progress === "phase2") {
-                window.location.href = "phase2.html";
+            if (progress === "phase3") {
+                window.location.href = "phase3.html";
             }
         }
     </script>
 </head>
+
 <body onload="checkProgress(); startTyping();">
-    <h1 class="glitch">PHASE 1: INITIATION</h1>
+    <h1 class="glitch">PHASE 2: THE TRIAL OF AWARENESS</h1>
     <div class="typewriter">
         <p>You have stepped beyond the first door. But the true path remains hidden.</p>
         <p id="hiddenMessage" style="animation-delay: 0s; display: none;">To proceed, you must recover what was lost. The first key lies where one speaks friend to enter.</p>
