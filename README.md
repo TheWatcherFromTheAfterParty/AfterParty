@@ -23,10 +23,6 @@ The game features a retro, terminal-like interface with neon green text on a bla
 
 If you have any ideas or improvements for the game, feel free to fork the repository and submit a pull request. We welcome contributions from the community.
 
-## License
-
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
-
 ---
 
 Good luck, Seeker. The path ahead is challenging, but the rewards are great for those who persevere.
