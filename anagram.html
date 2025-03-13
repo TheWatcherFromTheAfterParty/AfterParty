@@ -36,6 +36,7 @@
         function startTyping() {
             if (!localStorage.getItem("anagramTypingDone")) {
                 // First visit: Run the typewriter animation with delays
+                setTimeout(() => document.getElementById("hiddenMessage0").style.display = "block", 0);
                 setTimeout(() => document.getElementById("hiddenMessage1").style.display = "block", 4000);
                 setTimeout(() => document.getElementById("hiddenMessage2").style.display = "block", 8000);
                 setTimeout(() => document.getElementById("hiddenMessage3").style.display = "block", 12000);
