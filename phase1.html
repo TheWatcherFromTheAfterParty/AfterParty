@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>PHASE 1: INITIATION</title>
+    <title>PHASE 1</title>
     <link rel="stylesheet" href="style.css">
     <script>
         function checkPassword() {
@@ -37,11 +37,14 @@
             var progress = localStorage.getItem("progress");
             if (progress === "anagram") {
                 window.location.href = "anagram.html";
+            } else if (progress === "cipher") {
+                window.location.href = "cipher.html";
             }
+
         }
 
         function startTyping() {
-            if (!localStorage.getItem("typingDone")) {
+            if (!localStorage.getItem("p1typingDone")) {
                 // First visit: Run the typewriter animation with delays
                 setTimeout(() => document.getElementById("hiddenMessage1").style.display = "block", 4000);
                 setTimeout(() => document.getElementById("hiddenMessage2").style.display = "block", 8000);
@@ -52,7 +55,7 @@
                 setTimeout(() => document.getElementById("hiddenMessage7").style.display = "block", 28000);
 
                 // Mark as played
-                localStorage.setItem("typingDone", "true");
+                localStorage.setItem("p1typingDone", "true");
             } else {
                 // Subsequent visits: Instantly reveal all text without animation
                 for (let i = 0; i <= 7; i++) {

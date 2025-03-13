@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>FINAL TRANSMISSION</title>
+    <link rel="stylesheet" href="style.css">
+    <script>
+        function startTyping() {
+            
+            if (!localStorage.getItem("finalTypingDone")) {
+                // First visit: Run the typewriter animation with delays
+                setTimeout(() => document.getElementById("hiddenMessage1").style.display = "block", 4000);
+                setTimeout(() => document.getElementById("hiddenMessage2").style.display = "block", 8000);
+                setTimeout(() => document.getElementById("hiddenMessage3").style.display = "block", 12000);
+                setTimeout(() => document.getElementById("hiddenMessage4").style.display = "block", 16000);
+                setTimeout(() => document.getElementById("hiddenMessage5").style.display = "block", 20000);
+                // setTimeout(() => document.getElementById("hiddenMessage6").style.display = "block", 24000);
+                // setTimeout(() => document.getElementById("hiddenMessage7").style.display = "block", 28000);
+
+                // Mark as played
+                localStorage.setItem("finalTypingDone", "true");
+            } else {
+                // Subsequent visits: Instantly reveal all text without animation
+                for (let i = 0; i <= 5; i++) {
+                    let message = document.getElementById(`hiddenMessage${i}`);
+                    message.style.display = "block";
+                    message.style.animation = "none"; // Remove typewriter effect
+                    message.style.borderRight = "none"; // Hide cursor effect
+                }
+            }
+        }
+
+</script>
+</head>
+
+<body onload="startTyping();">
+<h1 class="glitch">WELL DONE SEEKER</h1>
+    <div class="typewriter">
+        <p id="hiddenMessage0" style="animation-delay: 0s; display: none;">If you have followed this far, you are one of the chosen.</p>
+        <p id="hiddenMessage1" style="animation-delay: 0s; display: none;">The truth has always been before you.</p>
+        <p id="hiddenMessage2" style="animation-delay: 0s; display: none;">Only those who see can find the final reward.</p>
+        <p id="hiddenMessage3" style="animation-delay: 0s; display: none;">The Watcher does not end. The Watcher continues.</p>
+        <p id="hiddenMessage4" style="animation-delay: 0s; display: none;">The door is open, but only for those who choose to step through.</p>
+        <p id="hiddenMessage5" style="animation-delay: 0s; display: none;">If you are ready, respond.</p>
+
+    </div>
+    <div class="hidden-text">
+        <p>TheWatcherFromTheAfterParty@gmail.com</p>
+    </div>
+    </body>
+</html>

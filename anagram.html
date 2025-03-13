@@ -2,52 +2,82 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Phase 2 - The Trial of Awareness</title>
+    <title>PHASE 2</title>
     <link rel="stylesheet" href="style.css">
     <script>
         function checkPassword() {
             var password = document.getElementById("password").value;
-            if (password === "thirdkey") { 
-                document.body.innerHTML = "<h1 class='glitch'>ACCESS GRANTED</h1><p>Decrypting...</p>";
+            password = password.toLowerCase().replace(/\s/g, "");
+            if (password === "braised") { 
+                document.body.innerHTML = "<h1 class='glitch'>PASSWORD ENTERED...</h1><p>Decrypting...</p>";
                 setTimeout(function() {
-                    localStorage.setItem("progress", "phase3");
-                    window.location.href = "phase3.html"; 
+                    localStorage.setItem("progress", "anagram");
+                    window.location.href = "anagram.html"; 
                 }, 3000); // Simulate hacking delay
             } else {
                 document.body.innerHTML = "<h1 class='glitch'>PASSWORD ENTERED...</h1><p>Decrypting...</p>";
                 setTimeout(function() {
-                    document.body.innerHTML = "<h1 class='glitch'>ACCESS DENIED</h1><p>RELOADING...</p>";
+                    document.body.innerHTML = "<h1 class='glitch'>ACCESS DENIED</h1><p>Restarting...</p>";
                     setTimeout(function() {
                         location.reload();
-                    }, 1500); // Reload delay after joke
-                }, 3000); // RELOADING delay
+                    }, 3000); // Reload delay after joke
+                }, 3000); // Fake self-destruct delay
             }
         }
 
         function checkProgress() {
             var progress = localStorage.getItem("progress");
-            if (progress === "phase3") {
-                window.location.href = "phase3.html";
+            if (progress === "cipher") {
+                window.location.href = "cipher.html";
+            }
+            
+        }
+
+        function startTyping() {
+            if (!localStorage.getItem("anagramTypingDone")) {
+                // First visit: Run the typewriter animation with delays
+                setTimeout(() => document.getElementById("hiddenMessage1").style.display = "block", 4000);
+                setTimeout(() => document.getElementById("hiddenMessage2").style.display = "block", 8000);
+                setTimeout(() => document.getElementById("hiddenMessage3").style.display = "block", 12000);
+                setTimeout(() => document.getElementById("hiddenMessage4").style.display = "block", 16000);
+                setTimeout(() => document.getElementById("hiddenMessage5").style.display = "block", 20000);
+                // setTimeout(() => document.getElementById("hiddenMessage6").style.display = "block", 24000);
+                // setTimeout(() => document.getElementById("hiddenMessage7").style.display = "block", 28000);
+
+                // Mark as played
+                localStorage.setItem("anagramTypingDone", "true");
+            } else {
+                // Subsequent visits: Instantly reveal all text without animation
+                for (let i = 0; i <= 5; i++) {
+                    let message = document.getElementById(`hiddenMessage${i}`);
+                    message.style.display = "block";
+                    message.style.animation = "none"; // Remove typewriter effect
+                    message.style.borderRight = "none"; // Hide cursor effect
+                }
             }
         }
-    </script>
+
+</script>
 </head>
 
 <body onload="checkProgress(); startTyping();">
-    <h1 class="glitch">PHASE 2: THE TRIAL OF AWARENESS</h1>
-    <div class="typewriter">
-        <p>You have stepped beyond the first door. But the true path remains hidden.</p>
-        <p id="hiddenMessage" style="animation-delay: 0s; display: none;">To proceed, you must recover what was lost. The first key lies where one speaks friend to enter.</p>
-        <script>
-            function startTyping() {
-            setTimeout(function() {
-                document.getElementById("hiddenMessage").style.display = "block";
-            }, 4000); // Match the animation delay
-            }
-        </script>
-    </div>
-    <p></p>
-    <input type="text" id="password" placeholder="ENTER NEXT KEY">
-    <button onclick="checkPassword()">DECRYPT ACCESS</button>
+<h1 class="glitch">PHASE 2</h1>
+<!-- <div class="typewriter">
+    <p id="hiddenMessage0">Welcome, Seeker.</p>
+    <p id="hiddenMessage1" style="animation-delay: 0s; display: none;">The key has always been before you.</p>
+    <p id="hiddenMessage2" style="animation-delay: 0s; display: none;">Align it, and the path will reveal itself.</p>
+</div> -->
+<p></p>
+<div class="typewriter">
+    <p id="hiddenMessage0" style="animation-delay: 0s; display: none;">XWO FYXDWOA POKMP XWOTA AOUYAMP</p>
+    <p id="hiddenMessage1" style="animation-delay: 0s; display: none;">QBJJBF XWO PTUKYJ</p>
+    <p id="hiddenMessage2" style="animation-delay: 0s; display: none;">XWO XTZO MAYFP KOYA</p>
+    <p id="hiddenMessage3" style="animation-delay: 0s; display: none;">DYCBIOGBCTWYTTYHC QUWI</p>
+</div>
+
+
+<!-- <input type="text" id="password" placeholder="ENTER PASSCODE">
+<button onclick="checkPassword()">CHECK ANSWER</button> -->
+
 </body>
-</html> 
+</html>
